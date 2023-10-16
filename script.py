@@ -1,3 +1,5 @@
+import random
+
 print("""
  _                                             
 | |                                            
@@ -9,7 +11,10 @@ print("""
                    |___/                       
       """)
 
-random_word = "beekeeper"
+words_list = ["beekeeper", "skeleton", "robot",
+              "mouse", "orange", "arrived", "upscale"]
+
+random_word = random.choice(words_list)
 secret_word = ["_"] * len(random_word)
 lives = 5
 
