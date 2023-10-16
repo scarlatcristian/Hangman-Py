@@ -13,12 +13,12 @@ print("""
 
 words_list = ["beekeeper", "skeleton", "robot",
               "mouse", "orange", "arrived", "upscale"]
-
 random_word = random.choice(words_list)
 secret_word = ["_"] * len(random_word)
+display_word = " ".join(secret_word)
 lives = 5
 
-print(" ".join(secret_word))
+print(display_word)
 
 while "_" in secret_word and lives > 0:
     letter = input("Guess a letter: ").lower()
@@ -29,17 +29,18 @@ while "_" in secret_word and lives > 0:
 
     if letter in secret_word and letter in random_word:
         print("You already guessed that letter")
-        print(" ".join(secret_word))
-
+        print(display_word)
     elif letter in random_word:
-        for index, char in enumerate(random_word):
+        for position in range(len(random_word)):
+            char = random_word[position]
             if char == letter:
-                secret_word[index] = letter
-        print(" ".join(secret_word))
+                secret_word[position] = letter
+        display_word = " ".join(secret_word)
+        print(display_word)
     else:
         lives -= 1
         print(f"You guessed wrong, you have {lives} left!")
-        print(" ".join(secret_word))
+        print(display_word)
 
 
 if lives <= 0:
