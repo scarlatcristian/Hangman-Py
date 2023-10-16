@@ -19,7 +19,6 @@ secret_word = ["_"] * len(random_word)
 lives = 5
 
 print(" ".join(secret_word))
-x = 0
 
 while "_" in secret_word and lives > 0:
     letter = input("Guess a letter: ").lower()
